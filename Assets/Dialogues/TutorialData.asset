@@ -16,5 +16,7 @@ MonoBehaviour:
   - Let's give this fancy new sub a go!
   - I should try navigating using the WASD or Arrow keys.
   - The proximity alert will help me not getting blown up.
+  - Some mines explode instantly,
+  - While others have a timer, I gotta be careful.
   - Let's get that cheese!
-  actorsIndices: 00000000000000000000000000000000
+  actorsIndices: 000000000000000000000000000000000000000000000000
