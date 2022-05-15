@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TutorialData
   m_EditorClassIdentifier: 
   dialogueLines:
-  - I should try navigating around the mines
-  - The proximity alert will help me not to explode!
-  actorsIndices: 0000000000000000
+  - Let's give this fancy new sub a go!
+  - I should try navigating using the WASD or Arrow keys.
+  - The proximity alert will help me not getting blown up.
+  - Let's get that cheese!
+  actorsIndices: 00000000000000000000000000000000
