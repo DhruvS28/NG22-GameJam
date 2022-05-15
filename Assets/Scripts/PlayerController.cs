@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sr;
     public Gradient gradient;
 
+    private float minetimer;
+
     private int speed;
 
 
@@ -111,8 +113,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (collider.tag == "Mine")
         {
-            StartCoroutine("CountDown", collider.gameObject);
             sr = collider.GetComponent<SpriteRenderer>();
+            minetimer = collider.GetComponent<MineTime>().explosionTimer;
+            
+            StartCoroutine("CountDown", collider.gameObject);
             StartCoroutine("MineColor", sr);
         }
     }
@@ -130,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator CountDown(GameObject collider)
     {
-        for(int i = 3; i > 0; i--)
+        for(float i = minetimer; i > 0; i--)
         {
             Debug.Log(i);
             yield return new WaitForSeconds(1f);
@@ -142,10 +146,11 @@ public class PlayerController : MonoBehaviour
     IEnumerator MineColor(SpriteRenderer sr)
     {
         
-        for(int i = 1; i <= 25; i++)
-        {
-            sr.color = gradient.Evaluate(i/30f);
+        for(float i = 1; i <= (minetimer*10); i++)
+        {  
             yield return new WaitForSeconds(0.1f);
+            try{sr.color = gradient.Evaluate(i/(minetimer*10f));}
+            catch{}
         }
         // Debug.Log("Boom by time");
     }

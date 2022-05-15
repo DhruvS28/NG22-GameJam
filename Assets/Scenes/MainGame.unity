@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 716757731}
   - component: {fileID: 716757732}
   - component: {fileID: 716757733}
+  - component: {fileID: 716757734}
   m_Layer: 0
   m_Name: Mine1
   m_TagString: Mine
@@ -579,6 +580,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &716757734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716757728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4da6d5f7761ca94fb2a2a0f4d3d0acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionTimer: 1
 --- !u!1 &1019409838
 GameObject:
   m_ObjectHideFlags: 0
