@@ -21,11 +21,15 @@ public class PlayerController : MonoBehaviour
 
     private int speed;
 
+    private CheeseFoundScript _cheeseFoundScreen;
+
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 10;
+
+        _cheeseFoundScreen = FindObjectOfType<CheeseFoundScript>();
     }
 
     // Update is called once per frame
@@ -117,6 +121,8 @@ public class PlayerController : MonoBehaviour
         else if (collider.tag == "Cheese")
         {
             Debug.Log("Cheese found");
+            _cheeseFoundScreen.TurnOnTheCheeseWindow();
+
         }
         else if (collider.tag == "Mine")
         {
