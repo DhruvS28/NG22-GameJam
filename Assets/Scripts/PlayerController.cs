@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public SpriteRenderer sr;
+    public Gradient gradient;
 
     private int speed;
 
@@ -110,7 +111,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            StartCoroutine("CountDown");
+            StartCoroutine("CountDown", collider.gameObject);
+            sr = collider.GetComponent<SpriteRenderer>();
+            StartCoroutine("MineColor", sr);
         }
     }
 
@@ -119,18 +122,29 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision);
         StopAllCoroutines();
         Debug.Log("Boom on collision");
+        Destroy(collision.gameObject);
     }
 
-    IEnumerator CountDown()
+    IEnumerator CountDown(GameObject collider)
     {
         for(int i = 3; i > 0; i--)
         {
             Debug.Log(i);
             yield return new WaitForSeconds(1f);
         }
-
         Debug.Log("Boom by time");
+        Destroy(collider);
     }
 
+    IEnumerator MineColor(SpriteRenderer sr)
+    {
+        
+        for(int i = 1; i <= 25; i++)
+        {
+            sr.color = gradient.Evaluate(i/30f);
+            yield return new WaitForSeconds(0.1f);
+        }
+        // Debug.Log("Boom by time");
+    }
 
 }
