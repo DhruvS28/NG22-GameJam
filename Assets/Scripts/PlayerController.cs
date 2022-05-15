@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
         {
             StopAllCoroutines();
             Debug.Log("Boom on collision");
-            GameObject explode = Instantiate(explosion, new Vector3(collision.transform.position.x, collision.transform.position.y, 20f), Quaternion.identity);
+            GameObject explode = Instantiate(explosion, new Vector3(collision.transform.position.x, collision.transform.position.y, 0f), Quaternion.identity);
             Destroy(collision.gameObject);
         }
     }
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("Boom by time");
 
-        GameObject explode = Instantiate(explosion, new Vector3(collider.transform.position.x, collider.transform.position.y, 20f), Quaternion.identity);
+        GameObject explode = Instantiate(explosion, new Vector3(collider.transform.position.x, collider.transform.position.y, 0f), Quaternion.identity);
         Destroy(collider);
         // Destroy(explode);
     }

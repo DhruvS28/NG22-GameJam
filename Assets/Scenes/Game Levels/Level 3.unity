@@ -303,6 +303,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  explosion: {fileID: 0}
   _isMineNearby: 0
   _isPlayerBusy: 0
 --- !u!4 &4471065
