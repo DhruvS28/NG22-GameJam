@@ -13,9 +13,12 @@ public class UIHelperFunctions : MonoBehaviour
     private Text _storyMessageText;
     private bool _isIntroActive = false;
 
+    private AudioSource _menuAudioPlayer;
+
     private void Start()
     {
         _storyMessageText = storyMessagesText.GetComponentInChildren<Text>();
+        _menuAudioPlayer = FindObjectOfType<AudioSource>();
     }
 
     private void Update()
@@ -68,6 +71,7 @@ public class UIHelperFunctions : MonoBehaviour
 
     private void StartTheGame()
     {
+        _menuAudioPlayer.volume = .0f;
         SceneManager.LoadScene(1);
     }
 }
