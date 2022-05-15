@@ -6203,6 +6203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheeseFoundWindow: {fileID: 1696460974874013832}
+  VictoryClip: {fileID: 8300000, guid: 76646de4faf9f514ab73ce2e0166df5f, type: 3}
 --- !u!222 &9011351321067079038
 CanvasRenderer:
   m_ObjectHideFlags: 0

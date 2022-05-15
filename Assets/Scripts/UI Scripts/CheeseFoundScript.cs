@@ -26,9 +26,9 @@ public class CheeseFoundScript : MonoBehaviour
 
     public void TurnOnTheCheeseWindow()
     {
-        AudioSource audio = GameObject.Find("PlayerHolder").GetComponent<AudioSource>();
-        audio.clip = VictoryClip;
-        audio.Play();
+            AudioSource audio = GameObject.Find("PlayerHolder").GetComponent<AudioSource>();
+            audio.clip = VictoryClip;
+            audio.Play();
 
             cheeseFoundWindow.SetActive(true);
             _playerControllerReference._isPlayerBusy = true;
