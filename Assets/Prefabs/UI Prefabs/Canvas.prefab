@@ -772,7 +772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8514706955281383657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5031986953554809484}
+        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+        m_MethodName: RestartTheLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3218996659273005775
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,13 +973,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933160248509344824}
+  - component: {fileID: 5031986953554809484}
   m_Layer: 5
   m_Name: GameOverWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1933160248509344824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -990,6 +1003,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 576, y: 325.438}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5031986953554809484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519414810109058728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc331dceaf351d478421378cb8ca1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _childrenObjects:
+  - {fileID: 1006346799828126173}
+  - {fileID: 1438728774763179478}
+  - {fileID: 2431024799722776692}
 --- !u!1 &5212085804449596877
 GameObject:
   m_ObjectHideFlags: 0
