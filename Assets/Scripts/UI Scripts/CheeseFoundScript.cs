@@ -23,15 +23,17 @@ public class CheeseFoundScript : MonoBehaviour
 
     public void TurnOnTheCheeseWindow()
     {
-        if(_curScene.buildIndex != 4)
-        {
             cheeseFoundWindow.SetActive(true);
             _playerControllerReference._isPlayerBusy = true;
-        }
     }
 
     public void GoToNextLevel()
     {
         SceneManager.LoadScene(_curScene.buildIndex + 1);
+    }
+
+    public void LoadTheMenuScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }
