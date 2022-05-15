@@ -7,14 +7,21 @@ using UnityEngine.UI;
 public class UIHelperFunctions : MonoBehaviour
 {
     public List<string> introMessages = new List<string>();
-    public GameObject exitGameButton, playGameButton, storyMessagesText, headerBar;
+    public GameObject exitGameButton, playGameButton, storyMessagesText, headerBar, skipPrompt;
 
     private int _messageIndex = 0;
     private Text _storyMessageText;
+    private bool _isIntroActive = false;
 
     private void Start()
     {
         _storyMessageText = storyMessagesText.GetComponentInChildren<Text>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _isIntroActive)
+            StartTheGame();
     }
 
     public void LoadScene(string scene_name)
@@ -29,7 +36,9 @@ public class UIHelperFunctions : MonoBehaviour
         headerBar.SetActive(false);
 
         storyMessagesText.SetActive(true);
-       
+        skipPrompt.SetActive(true);
+
+        _isIntroActive = true;
 
         SetUpTheIntroText();
     }
