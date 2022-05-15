@@ -11,6 +11,9 @@ public class CheeseFoundScript : MonoBehaviour
 
     private Scene _curScene;
 
+    public AudioClip VictoryClip;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,10 @@ public class CheeseFoundScript : MonoBehaviour
 
     public void TurnOnTheCheeseWindow()
     {
+        AudioSource audio = GameObject.Find("PlayerHolder").GetComponent<AudioSource>();
+        audio.clip = VictoryClip;
+        audio.Play();
+
             cheeseFoundWindow.SetActive(true);
             _playerControllerReference._isPlayerBusy = true;
     }
