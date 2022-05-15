@@ -10,6 +10,8 @@ public class ExplodeSub : MonoBehaviour
 
     private GameOverScript _gameOverScreenReference;
 
+    public AudioClip lossClip;
+
 
     private void Start()
     {
@@ -24,6 +26,11 @@ public class ExplodeSub : MonoBehaviour
             Debug.Log("Exploded");
             sr = collider.GetComponent<SpriteRenderer>();
             sr.sprite = brokenSub;
+
+            AudioSource audio = GameObject.Find("PlayerHolder").GetComponent<AudioSource>();
+            audio.clip = lossClip;
+            audio.Play();
+
             _gameOverScreenReference.EnableTheGameOverScreen();
         }
 
