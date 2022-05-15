@@ -62,8 +62,7 @@ public class PlayerController : MonoBehaviour
             // right
             if (move.x == 1)
             {
-                sr.flipX = false; 
-                // Debug.Log("flip false");
+                // anim.Play("Sub_IdleR");
                 anim.SetBool("Right", true);
                 anim.SetBool("Left", false);
             }
@@ -71,8 +70,7 @@ public class PlayerController : MonoBehaviour
             // left
             if (move.x == -1)
             {
-                sr.flipX = true; 
-                // Debug.Log("flip true");
+                // anim.Play("Sub_IdleL");
                 anim.SetBool("Left", true);
                 anim.SetBool("Right", false);
             }
