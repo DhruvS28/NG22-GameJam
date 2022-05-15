@@ -10,10 +10,15 @@ public class GameOverScript : MonoBehaviour
     private Scene _curScene;
     public List<GameObject> _childrenObjects;
 
+    private PlayerController _playerReference;
+
+
     // Start is called before the first frame update
     void Start()
     {
         _restartButton = GetComponentInChildren<Button>();
+
+        _playerReference = FindObjectOfType<PlayerController>();
 
         _curScene = SceneManager.GetActiveScene();
 
@@ -28,11 +33,18 @@ public class GameOverScript : MonoBehaviour
 
     public void EnableChildrenOnFail()
     {
-
+        foreach (GameObject gameobject in _childrenObjects)
+            gameobject.SetActive(true);
     }
 
     public void RestartTheLevel()
     {
         SceneManager.LoadScene(_curScene.name);
+    }
+
+    public void EnableTheGameOverScreen()
+    {
+        _playerReference._isPlayerBusy = true;
+        Invoke(nameof(EnableChildrenOnFail), 2.0f);
     }
 }
