@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public SpriteRenderer sr;
     public Gradient gradient;
+    
 
     private float minetimer;
+
+    [HideInInspector] public bool _isMineNearby;
 
     private int speed;
 
@@ -105,6 +108,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(collider.name);
         if (collider.name == "Detector")
         {
+            _isMineNearby = true;
             Debug.Log("Alert");
         }
         else if (collider.tag == "Cheese")
@@ -118,6 +122,14 @@ public class PlayerController : MonoBehaviour
             
             StartCoroutine("CountDown", collider.gameObject);
             StartCoroutine("MineColor", sr);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.name == "Detector")
+        {
+            _isMineNearby = false;
         }
     }
 

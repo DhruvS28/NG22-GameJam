@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private int _playerScore;
 
-    private Rigidbody2D _playerBody;
+    public Rigidbody2D _playerBody;
 
     private void Awake()
     {
