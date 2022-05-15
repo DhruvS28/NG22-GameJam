@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Cheese found");
         }
-        else
+        else if (collider.tag == "Mine")
         {
             StartCoroutine("CountDown", collider.gameObject);
             sr = collider.GetComponent<SpriteRenderer>();
@@ -119,10 +119,13 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision);
-        StopAllCoroutines();
-        Debug.Log("Boom on collision");
-        Destroy(collision.gameObject);
+        // Debug.Log(collision.name);
+        if (collision.gameObject.tag == "Mine")
+        {
+            StopAllCoroutines();
+            Debug.Log("Boom on collision");
+            Destroy(collision.gameObject);
+        }
     }
 
     IEnumerator CountDown(GameObject collider)
