@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public SpriteRenderer sr;
     public Gradient gradient;
+
+    public GameObject explosion;
     
 
     private float minetimer;
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
         {
             StopAllCoroutines();
             Debug.Log("Boom on collision");
+            GameObject explode = Instantiate(explosion, new Vector3(collision.transform.position.x, collision.transform.position.y, 20f), Quaternion.identity);
             Destroy(collision.gameObject);
         }
     }
@@ -153,7 +156,10 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         Debug.Log("Boom by time");
+
+        GameObject explode = Instantiate(explosion, new Vector3(collider.transform.position.x, collider.transform.position.y, 20f), Quaternion.identity);
         Destroy(collider);
+        // Destroy(explode);
     }
 
     IEnumerator MineColor(SpriteRenderer sr)

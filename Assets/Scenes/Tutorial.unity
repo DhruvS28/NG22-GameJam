@@ -1121,6 +1121,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  explosion: {fileID: 315866125909337498, guid: 0efc63ae1700d7949a2ea5bd287d8512, type: 3}
   _isMineNearby: 0
   _isPlayerBusy: 0
 --- !u!4 &1295845095
