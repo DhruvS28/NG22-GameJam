@@ -43,7 +43,7 @@ public class UIHelperFunctions : MonoBehaviour
     {
         _storyMessageText.text = introMessages[_messageIndex];
 
-        InvokeRepeating(nameof(UpdateTheIntroText), 3.0f, 3.0f);
+        InvokeRepeating(nameof(UpdateTheIntroText), 4.5f, 4.5f);
     }
 
     private void UpdateTheIntroText()
