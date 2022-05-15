@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 move;
     public Rigidbody2D rb;
+    public Animator anim;
+    public SpriteRenderer sr;
 
     private int speed;
 
@@ -15,7 +17,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5;
+        speed = 10;
     }
 
     // Update is called once per frame
@@ -27,12 +29,73 @@ public class PlayerController : MonoBehaviour
           Debug.Log("Testing");
         }
 
+        Movement();
 
-        move.y = Input.GetAxisRaw("Vertical");
+    }
+
+
+    void Movement()
+    {
         move.x = Input.GetAxisRaw("Horizontal");
+        move.y = Input.GetAxisRaw("Vertical");
+
+        if (move.x == 0 && move.y == 0)
+        {
+            // Debug.Log(1);
+            // animator.SetBool("Fire", mooving);
+            // anim.SetBool("Moving", false);
+            foreach(AnimatorControllerParameter param in anim.parameters) {            
+                anim.SetBool(param.name, false);            
+            }
+        }
+
+        else
+        {
+            foreach(AnimatorControllerParameter param in anim.parameters) {            
+                anim.SetBool(param.name, false);            
+            }
+
+            if (move.y == 0)
+                anim.SetBool("Moving", true);
+                // sprite
+            
+            // right
+            if (move.x == 1)
+            {
+                // sr.flipX = false; 
+                // Debug.Log("flip false");
+                anim.SetBool("Right", true);
+                anim.SetBool("Left", false);
+            }
+
+            // left
+            if (move.x == -1)
+            {
+                // sr.flipX = true; 
+                // Debug.Log("flip true");
+                anim.SetBool("Left", true);
+                anim.SetBool("Right", false);
+            }
+
+            // up
+            if (move.y == 1)
+            {
+                anim.SetBool("Up", true);
+                anim.SetBool("Down", false);
+            }
+
+            // down
+            if (move.y == -1)
+            {
+                anim.SetBool("Down", true);
+                anim.SetBool("Up", false);
+            }
+        }
+
+
+
 
         rb.MovePosition(rb.position + move.normalized * speed * Time.fixedDeltaTime);
-
     }
 
 
