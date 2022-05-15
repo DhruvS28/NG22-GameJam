@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float minetimer;
 
-    [HideInInspector] public bool _isMineNearby;
+    [HideInInspector] public bool _isMineNearby, _isPlayerBusy = false;
 
     private int speed;
 
@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
           Debug.Log("Testing");
         }
 
-        Movement();
+        if(!_isPlayerBusy)
+            Movement();
 
     }
 
