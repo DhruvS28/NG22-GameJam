@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             // right
             if (move.x == 1)
             {
-                // sr.flipX = false; 
+                sr.flipX = false; 
                 // Debug.Log("flip false");
                 anim.SetBool("Right", true);
                 anim.SetBool("Left", false);
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             // left
             if (move.x == -1)
             {
-                // sr.flipX = true; 
+                sr.flipX = true; 
                 // Debug.Log("flip true");
                 anim.SetBool("Left", true);
                 anim.SetBool("Right", false);
@@ -101,8 +101,19 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) 
     {
-        Debug.Log(collider);
-        StartCoroutine("CountDown");
+        // Debug.Log(collider.name);
+        if (collider.name == "Detector")
+        {
+            Debug.Log("Alert");
+        }
+        else if (collider.tag == "Cheese")
+        {
+            Debug.Log("Cheese found");
+        }
+        else
+        {
+            StartCoroutine("CountDown");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
